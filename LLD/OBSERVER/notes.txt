@@ -1,0 +1,5 @@
+As the name suggests , in observer design pattern we will have two things one is observer and the other one is observable.
+
+whenever the state of the observable changes, all the observers of that observable should be notified.
+
+we will have two interfaces one is for observable and other one for the observer

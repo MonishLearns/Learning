@@ -1,0 +1,3 @@
+Factory Design Pattern:-
+
+if you want to create objects based on some conditions then we should use Factory Design pattern.

@@ -1,0 +1,4 @@
+State Design Pattern:-
+1. This design pattern is mostly used when the state of the system changes and each state has only some defined actions.
+2. we will have a client class which will have the state instance, we will also have methods to set and get states.
+3. we will have class for each state that extends an abstract class and these state will have the implementations of the actions.
