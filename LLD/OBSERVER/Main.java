@@ -1,16 +1,11 @@
-package LLD.OBSERVER;
-
-import LLD.OBSERVER.observable.Iphone;
-import LLD.OBSERVER.observable.ObservableInterface;
-import LLD.OBSERVER.observer.EmailObserver;
-import LLD.OBSERVER.observer.NotificationAlertObserver;
+package Learning.LLD.OBSERVER;
 
 public class Main {
     public static void main(String args[]){
-        ObservableInterface iphoneObservable = new Iphone();
+        Learning.LLD.OBSERVER.observable.ObservableInterface iphoneObservable = new Learning.LLD.OBSERVER.observable.Iphone();
 
-        NotificationAlertObserver emailObserver1 = new EmailObserver("monish@gmail.com", iphoneObservable);
-        NotificationAlertObserver emailObserver2 = new EmailObserver("monish123@gmail.com", iphoneObservable);
+        Learning.LLD.OBSERVER.observer.NotificationAlertObserver emailObserver1 = new Learning.LLD.OBSERVER.observer.EmailObserver("monish@gmail.com", iphoneObservable);
+        Learning.LLD.OBSERVER.observer.NotificationAlertObserver emailObserver2 = new Learning.LLD.OBSERVER.observer.EmailObserver("monish123@gmail.com", iphoneObservable);
 
         iphoneObservable.add(emailObserver1);
         iphoneObservable.add(emailObserver2);

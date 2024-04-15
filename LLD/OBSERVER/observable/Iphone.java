@@ -1,8 +1,8 @@
-package LLD.OBSERVER.observable;
+package Learning.LLD.OBSERVER.observable;
 
 import java.util.*;
 
-import LLD.OBSERVER.observer.NotificationAlertObserver;
+import Learning.LLD.OBSERVER.observer.*;;
 
 public class Iphone implements ObservableInterface{
     public List<NotificationAlertObserver> ObserverList = new ArrayList<>();

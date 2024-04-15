@@ -1,10 +1,8 @@
-package LLD.OBSERVER.observable;
-
-import LLD.OBSERVER.observer.NotificationAlertObserver;
+package Learning.LLD.OBSERVER.observable;
 
 public interface ObservableInterface {
-    public void add(NotificationAlertObserver observer);
-    public void remove(NotificationAlertObserver observer);
+    public void add(Learning.LLD.OBSERVER.observer.NotificationAlertObserver observer);
+    public void remove(Learning.LLD.OBSERVER.observer.NotificationAlertObserver observer);
     public void notifySubscribers();
     public void changeState(int state);
     public int getState();
