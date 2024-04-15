@@ -1,9 +1,9 @@
-package LLD.FACTORY.factory;
+package Learning.LLD.FACTORY.factory;
 
-import LLD.FACTORY.Circle;
-import LLD.FACTORY.Rectangle;
-import LLD.FACTORY.Shape;
-import LLD.FACTORY.Square;
+import Learning.LLD.FACTORY.Circle;
+import Learning.LLD.FACTORY.Rectangle;
+import Learning.LLD.FACTORY.Shape;
+import Learning.LLD.FACTORY.Square;
 
 public class ShapeFactory {
     public Shape getShape(String input){

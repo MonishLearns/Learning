@@ -1,4 +1,4 @@
-package LLD.FACTORY;
+package Learning.LLD.FACTORY;
 
 public class Rectangle  implements Shape{
 
