@@ -38,7 +38,7 @@ public class LCS {
     public static void main(String args[]){
         // code to find the Longest common subsequence of given strings
         String s1 = "abcde";
-        String s2 = "bacldme";
+        String s2 = "bdeab";
         int n1  = s1.length();
         int n2 = s2.length();
         int[][] dp = new int[n1][n2];
