@@ -15,7 +15,7 @@ console.log(greeting.call(obj,1,2)); // 1,2,monish
 
 console.log(greeting.apply(obj,[1,2])); // 1,2,monish
 
-// bind is to separate the binding obj and the argumemts
+// bind is to separate the binding obj and the arguments
 
 let bound = greeting.bind(obj);
 let bound1 = greeting.bind(obj,1,2);
