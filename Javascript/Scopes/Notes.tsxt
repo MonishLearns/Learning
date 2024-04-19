@@ -1,0 +1,13 @@
+Scope is the area of code where a variable (or function) exists and is accessible. 
+
+There are a few different types of scopes in JavaScript: Global Scope, Function Scope and Block Scope.
+
+Global scoping :-
+
+These variables are accessible any where in the code.
+the variables defined with var are attached to the window object.
+but let, const are not even though they are initialised globally.
+
+so basically all the global variables having var , can also be accesed using `window.${variablenmae}`;
+
+Functional Scoping:-
