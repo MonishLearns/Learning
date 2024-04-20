@@ -1,0 +1,2 @@
+This is a design pattern in which we will have n number of childs of a abstract class , where the request from the client is delegated to the first child, if the first child is not able to handle the request it will delagate the request to the next child and follows
+ 
