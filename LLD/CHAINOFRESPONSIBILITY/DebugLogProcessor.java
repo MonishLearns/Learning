@@ -1,4 +1,4 @@
-package Learning.LLD.CHAINOFRESPONSIBILITY;
+package LLD.CHAINOFRESPONSIBILITY;
 
 public class DebugLogProcessor extends LogProcessor {
     DebugLogProcessor(LogProcessor nextLogProcessor){

@@ -1,4 +1,4 @@
-package Learning.DSA.DP;
+package DSA.DP;
 
 public class LCSub {
     static int Recursion(int n1, int n2, String s1, String s2, int[][] dp, int[] max1) {

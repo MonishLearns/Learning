@@ -11,3 +11,6 @@ root.render(
       </Suspense>
   </React.StrictMode>
 );
+
+// <Suspense> lets you display a fallback until its children have finished loading.
+// React.strictMode :- StrictMode is a tool for highlighting potential problems in an application

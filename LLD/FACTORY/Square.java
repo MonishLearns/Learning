@@ -1,4 +1,4 @@
-package Learning.LLD.FACTORY;
+package LLD.FACTORY;
 
 public class Square implements Shape {
 

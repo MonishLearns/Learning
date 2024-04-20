@@ -1,4 +1,4 @@
-package Learning.LLD.CHAINOFRESPONSIBILITY;
+package LLD.CHAINOFRESPONSIBILITY;
 
 public abstract class LogProcessor {
     public static int INFO =1;

@@ -1,4 +1,4 @@
-package Learning.LLD.CHAINOFRESPONSIBILITY;
+package LLD.CHAINOFRESPONSIBILITY;
 
 public class Main {
     public static void main(String args[]){

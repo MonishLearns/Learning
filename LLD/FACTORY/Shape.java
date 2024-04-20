@@ -1,4 +1,4 @@
-package Learning.LLD.FACTORY;
+package LLD.FACTORY;
 
 public interface Shape {
 

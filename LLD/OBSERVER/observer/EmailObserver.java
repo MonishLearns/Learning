@@ -1,12 +1,12 @@
-package Learning.LLD.OBSERVER.observer;
+package LLD.OBSERVER.observer;
 
 
 public class EmailObserver implements NotificationAlertObserver{
     String emailId;
-    Learning.LLD.OBSERVER.observable.ObservableInterface observable;
+    LLD.OBSERVER.observable.ObservableInterface observable;
 
 
-    public EmailObserver(String emailId, Learning.LLD.OBSERVER.observable.ObservableInterface observable){
+    public EmailObserver(String emailId, LLD.OBSERVER.observable.ObservableInterface observable){
         this.emailId = emailId;
         this.observable = observable;
     }   

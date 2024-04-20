@@ -1,6 +1,6 @@
-package Learning.LLD.FACTORY;
+package LLD.FACTORY;
 
-import Learning.LLD.FACTORY.factory.ShapeFactory;
+import LLD.FACTORY.factory.ShapeFactory;
 
 public class Main {
     public static void main(String[] args){
