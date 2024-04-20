@@ -1,0 +1,35 @@
+----------------------------- ** COMPONENT LIFECYCLE **----------------------------
+
+ComponentDidMount() :- this lifecycle method gets executed when the component is rendered for the first time.
+This is same as useEffect(() => {
+    // some logic
+},[])
+
+ComponentDidUpdate() : - this lifecycle methods gets called when the state of the component changes.
+This is same as useEffect(() => {
+    // some logic
+},[state1,state2])
+
+componentWillUnMount() : - when the component gets removed from the DOm
+This is same as useEffect(() => {
+    return ()=> {
+        //some logic
+    }
+},[sks,asas])
+
+
+Component lifecycle has mainly 3 phases:-
+
+1. Mounting :- React component instance is created and this instance is inserted into the DOM.
+we have 4 different methods in this phase :-
+    1. constructor() Method:- The constructor is called before the component is mounted into the DOM.
+    2. getDerivedStateFromPhase() :- this method is invoked everytime the parent method re renders
+    3. render() :- return react elements
+    4. ComponentDidMount() :- when the DOM insertion is completed, this method is called.
+
+
+2. Updating :- changes to the states or props, the components re-renders and updates
+    1. getDerivedStateFromPhase() :- compares the data in the state and updates data accordingly.
+    2. shouldComponentUpdate() :- checks if there is change in the state and only re renders if there is update to state or props
+
+3. unmounting :- when the data representing a particular component is removed, React removes associated components;
