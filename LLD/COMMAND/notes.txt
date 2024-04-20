@@ -1,0 +1,11 @@
+COMMAND DESIGN PATTERN:-
+
+1. it separates the logic of
+   1. Receiver
+   2. Invoker
+   3. Command
+
+Here the client invokes the invoker to generate a command to control the Receiver
+client -> invoker -> command -> Receiver
+
+invoker has command and command has Receiver
