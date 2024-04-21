@@ -6,10 +6,12 @@ public class AC {
 
     public void turnOnAC() {
         ac= true;
+        System.out.println("Turned on Ac");
     }
 
     public void  turnOffAC() {
         ac = false;
+        System.out.println("Turned off Ac");
     }
 
     public void setTemperature(int temp) {

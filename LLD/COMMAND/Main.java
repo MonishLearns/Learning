@@ -9,5 +9,6 @@ public class Main {
 
         remote.setCommand(new TurnOnAC());
         remote.press();
+        remote.undo();
     }
 }

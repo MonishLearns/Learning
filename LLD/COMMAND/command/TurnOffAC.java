@@ -8,5 +8,9 @@ public class TurnOffAC implements Command {
     public void execute() {
         ac.turnOffAC();
     }
+
+    public void undo() {
+        ac.turnOnAC();
+    }
 }
     
