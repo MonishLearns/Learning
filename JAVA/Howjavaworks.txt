@@ -1,0 +1,89 @@
+JVM :- 
+in our machine we will have JVM.
+Any machine or famous os like windows, mac, etc will have JVM already installed.
+Without JVM we can't run java applications
+
+JAVA is platform independent.
+JVM is platform dependent.
+JVM only understands byte code.
+
+client -> writes a java code -> javac(java compiler) -> converts to byte code -> JVM.
+
+JVM only executes one file or first file and that file should have main method.
+
+just not method name , but also it should follow main signature like below
+
+"public static void main(String args[])"
+
+Everything in java is object oriented programming.
+
+when we want to run something we need JRE(Java runtime environment)
+
+JVM is part of JRE.
+JVM + libraries = JRE
+
+HOW CLASSES AND OBJECT WORK BEHIND THE SCENES:-
+
+JVM has two things one is STACK and HEAP.
+
+All the things in the method will be stored in stack and each method will have a stack with key and value pair.
+ All the obj and their global variables are stored in HEAP and the object created in heap will have an address and this address will be present in the corresponding stack.
+
+
+ STRINGS AND STRING BUFFERS AND STRING BUILDERS
+
+ strings are immutable means can't be changed once created.
+ in java we deal with lot of strings and STRING is itself a class.
+ in the heap these object values are stored in "String constant pool", this pool will always check for the value existence and a new value, if the value is already there it returns the same address.
+
+ String buffers are immutable, by default it will have 16 character capacity.
+
+ STATIC:-
+ All static variables are stored somewhere outside of heap so that these variables can be shared by all the objects.
+ Since these are static variables and will be same for all the objects we can access or change the variables using `CLASSNAME.variable`
+
+ you can also create static methods and you can access them using `CLASSNAME.method` and you can only use static variables inside the static method.
+
+ ENCAPSULATION:- 
+ This means, make the data private and only give access to the data using setters and getters methods.
+
+
+ FINAL KEY WORD:-
+ Final can be used for variables, methods and classes.
+ Final variables are constants , can't be changed once initialised.
+ Final methods can't be overrided by the child classes.
+ Final classes can't be inherited by the child classes.
+
+ACCESS SPECIFIERS:-
+    public :- can be used by anyone
+    private:- only the class can use
+    protected:- within the same package and subclasses and the class can use.
+    default :- only within the package and class
+
+
+Always use == for integers and equalsTo for strings
+
+
+DownCasting :-
+ is a way of changing the parent object type to the child object type;
+
+Wrapper classes:-
+ int -> Integer (a wrapper class that extends Object class)
+ char -> Character (a wrapper class that extends Object class)
+ double -> Double (a wrapper class that extends Object class)
+
+Boxing:- 
+    it is like taking a primitive type and storing it in a object
+    int num = 7;
+    Integer num1 = new Integer(num)  // Boxing
+
+ABSTRACT KEYWORD:-
+    this abstract keyword is used when you want to declare the function in parent class but need to have implementation in child classes and we can never create objects for abstract classes.
+    There is no compulsary that abstract class should have abstract method
+    All the abstract methods declared in the parent class should definetely be implemented by the child classes.
+
+we can declare variables inside the interface but all the variables are declared in interface are static and final , that means they are class variables that can't be changed by an object and inside the object also.
+you can also extends interface with another interface.
+
+
+
