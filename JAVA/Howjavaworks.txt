@@ -86,4 +86,14 @@ we can declare variables inside the interface but all the variables are declared
 you can also extends interface with another interface.
 
 
+@Override :-
+An annotation used to tell intention of overriding the parent class function , so it is very good to avoid errors
+
+
+We have 3 types of interface:-
+1. Normal :- public abstract methods
+2. Function Interface(SAM) :- have only one public abstract method
+3. Marker Interface :- empty interface
+
+
 

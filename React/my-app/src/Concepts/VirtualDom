@@ -1,0 +1,12 @@
+The Document Object Model (DOM) is a programming interface for HTML and XML documents.
+It represents the structure of a document as a tree of nodes and provides a way for "scripts" to access and manipulate the content and structure of a document.
+
+Basically HTML is represented in a tree and javascript gives us a way to access and manipulate that tree.
+
+"React’s Virtual DOM (VDOM)" is an abstract representation of a real DOM. In other words, the Virtual DOM acts as an intermediary between the React components and the actual DOM, providing a high-performance way to update the user interface.
+
+React component ----------> virtual DOM(IN memory)(2 version of DOM's to make differing efficient) ----------> Actual DOM (updating is slow)
+
+1. React updates the Virtual DOM : When a component’s state or properties change, React updates the Virtual DOM to reflect the changes.
+2. Virtual DOM diffing : React then compares the updated Virtual DOM with a previous version of the Virtual DOM to determine the minimum number of updates      necessary to the actual DOM. This process is called “diffing.”
+3. Batch updates to the actual DOM : React then batches the necessary updates to the actual DOM, reducing the number of DOM updates and minimizing the impact on performance.

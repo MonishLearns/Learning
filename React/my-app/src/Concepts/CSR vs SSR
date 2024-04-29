@@ -1,0 +1,11 @@
+Client Side Rendering (CSR) is a rendering technique where only the html skeleton is rendered on the server with the complete page render happening on the browser by downloading and executing all the necessary JavaScript.
+
+we get HTML,CSS,JS separately and one by one and browser apply them to html.
+1. initial Page loading is fast.
+2. good for complex applications.
+
+Server Side Rendering, also known as the classic or traditional SSR, is the process of rendering the complete HTML page on the server in response to a request and returning it to the client.
+we get a full fledged HTML+CS+JS(ready to render) from the server.
+
+React supports Client side rendering.
+
