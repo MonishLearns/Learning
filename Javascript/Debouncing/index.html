@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>DEBOUNCING</title>
+    </head>
+    <body>
+        <h1> SEARCH BAR</h1>
+        <input id="search"/>
+        <script>
+            const Debounce = (func, delay) => {
+                let timeoutId;
+                return function() {
+                    const args = arguments;
+                    clearTimeout(timeoutId);
+                    timeoutId = setTimeout(() => func(...args),delay);
+                }
+            }
+            const callApi = (args) => {
+                console.log(`Calling API ${args}`);
+            }
+            var a = document.getElementById("search");
+            a.addEventListener("input",Debounce(() => callApi("argsbro"),1000));
+        </script>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>THROTTLING</title>
+    </head>
+    <body>
+        <h1>BUTTON</h1>
+        <button id="button">Click me</button>
+        <script>
+            const Throttle = (func, delay) => {
+                let isThrottling;
+                return function() {
+                    const args = arguments;
+                    if(!isThrottling){
+                        func(...args);
+                        isThrottling = true;
+                        setTimeout(() => isThrottling = false,delay);
+                    }
+                }
+            }
+            const callApi = (args) => {
+                console.log(`Calling API ${args}`);
+            }
+            var a = document.getElementById("button");
+            a.addEventListener("click",Throttle(() => callApi("argsbro"),2000));
+        </script>
+    </body>
+</html>
