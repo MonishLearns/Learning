@@ -96,4 +96,10 @@ We have 3 types of interface:-
 3. Marker Interface :- empty interface
 
 
+Exceptions:-
+1. compile time errors
+2. Runtime errors.
+3. logical errors
+
+
 
