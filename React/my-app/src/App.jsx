@@ -3,6 +3,7 @@ import StatusBar from './Customhook/Statusbar';
 import Counter1 from './ErrorBoundaries/Counter1';
 import Counter2 from './ErrorBoundaries/Counter2';
 import ErrorBoundary from './ErrorBoundaries/ErrorBoundary';
+import CheckUseEffect from './useEffectVsUseLayoutEffect/useEffect';
 
 function App() {
   return (
@@ -13,9 +14,10 @@ function App() {
         <ErrorBoundary fallback="error">
           <Counter2/>
         </ErrorBoundary> */}
-        <ErrorBoundary>
+        {/* <ErrorBoundary>
             <StatusBar/> 
-        </ErrorBoundary>
+        </ErrorBoundary> */}
+        <CheckUseEffect/>
     </div>
   );
 }
