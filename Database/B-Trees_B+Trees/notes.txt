@@ -1,0 +1,23 @@
+Full Table scan:-
+ - To find a row in a large table we perform full table scan.
+    - we need to read pages one by one all, this will require many I/O's
+ - Reading large tables is slow
+ - Requires many I/O's to read all pages.
+ - we need a way to reduce.
+ - The cost will be the no of pages we need to fetch and fetching each page is an I/O
+
+Original B-Tree:-
+    - Balanced Data structure for fast traversal.
+    - B-Tree has nodes
+    - in B-tree of "m" degree some nodes can have (m) child nodes
+    - node has up to (m-1) elements.
+    - each element has a key and a value.
+    - the value is usually data pointer to the row.
+    - Data pointer can point to primary key or tuple.
+    - Root Node, internal node and leaf node.
+    - A node = disk page.
+
+How B-Tree improves performance:-
+    - All key and values exists in all node of B trees
+    - key will be the index and value will be the reference to the page number.
+    

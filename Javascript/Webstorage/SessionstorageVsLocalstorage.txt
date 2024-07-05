@@ -1,0 +1,11 @@
+in session storage whenever the browser is closed or moved out the screen , the session storage is  removed .
+you can also create session cookies but these cookies will also be sent through the request.
+
+Local storage doesn't clear itself , we need to clear the local storage.
+Local storage has more memory capacity.(5MB atleast)
+
+getting data from server is more costlier than getting data from local storage.
+
+These webstorage follow same origin policy.
+
+**origin policy contain protocol,host, and port same

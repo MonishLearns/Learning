@@ -1,0 +1,101 @@
+1. what is a transaction?
+    A collection of queries treated as one unit of work.
+    it is difficult to achieve everything in one query 
+
+    transaction Lifespan:-
+    1. transaction BEGIN
+    2. transaction COMMIT
+    3. transaction ROLLBACK
+
+    transaction are usually to change and modify data.
+    it is perfectly normal to have a read only transaction.
+
+    whenever you run a query , the database starts a transaction and immediately commits it.
+    so we are always doing things using transaction some might be user defined some are database defined.
+
+2. what is Atomicity:-
+    All queries in a transaction msy succeed.
+    if one query fails, all prior successful queries in the transaction should ROLLBACK
+    if the database went down prior to a commit of a transaction, all the successful queries in a transactions should rollback.
+    An Atomic transaction is a transaction that will rollback all queries if one or more queries failed.
+
+3. what is isolation :-
+   can my inflight transaction see changes made by other transactions that are also in inflight or finished?
+   multiple transactions fighting to write to the same data that is where isolation comes into picture
+   Read phenomena :-
+       - Dirty read :- you read something is not committed yet so it can also get flushed. :- update and rollback and read
+       - Non-repeatable reads :- update and commit and then read
+       - Phantom reads :- the reads don't exist eg:- range queries ;- insert a new row and commit and read in between
+       - Lost updates :- i wrote something but read before commit :_ both of them are writing and read the same data(basically two transaction trying to write on the same data)
+    
+    isolation - isolation levels for inflight transactions
+    - Read uncommitted - No isolation, any change from the outside is visible to the transaction, committed or not
+    - Read committed - Each query in a transaction only sees committed changes by other transactions (default isolation level)
+    - repeatable read - The transaction will make sure that when a query reads a row, that row will remain unchanged while it running
+    - Snapshot - Each query in a transaction only sees changes that have been committed up to the start of a transaction.
+    - Serializable - transactions are run as if they serialized one after the other
+    Each DBMS implements isolation level differently.
+
+    Database implementation of isolation:-
+    - Each DBMS implements isolation level differently
+    - Pessimistic - Row level locks, table locks,page locks to avoid updates.
+    - optimistic - No locks , just track if things changes and fail the transaction if so (NOSQL uses this approaches)
+
+4. what is consistency:-
+    - consistency in data
+      - Defined by the user(DBA)
+      - Referential integrity(foreign keys)
+      - Atomicity
+      - Isolation
+      
+    - consistency in reads
+        - both relational in relational and no sql 
+        - a transaction has updated the value and committed that value and next transaction see the old value(problem)
+
+5. what is Durability:-
+    - Ability to persist changes when a transaction commits
+    - Any time that is written , when i lost power or database crashed, and i come back i see the data persisted.
+    - changes made by committed transactions must be persisted in a durable non-volatile storage.
+    - Durability techniques:-
+        - WAL :- write ahead log 
+            - writing a lot of data to disk is expensive.
+            - that is why DBMS persist a compressed version of the changes known as WAL
+        - Asynchronous Snapshot :- every thing that is committed and asynchronously snapshot are stored in disk
+        - AOF (Append only file) :- very similar to WAL
+    - Durability - OS Cache
+        - A write request in OS usually goes to the OS cache.
+        - when the writes go the OS cache, an OS crush, machine restart could lead to loss of data.
+        - Fsync OS command forces writes to always go to disk.
+
+How to set the isolation level for a database:-
+    - by default all the transaction will be at a isolation level "Read committed"
+    - we can change the isolation level of transaction using the below query:-
+        - begin transaction isolation level repeatable read
+            - this  will make sure no commits will be there until the current transaction end that means the database state will be same from transaction start to the end , not other commit can change it.
+
+        - begin transaction isolation level serializable;
+            - same as the repeatable read (only in postgres)
+    
+    - difference between "non repeatable" vs "serializable"
+        - when you did an update and some other transaction did a update and committed the change, when you try to read that table in case of serializable it would throw an error,
+        but incase of non repeatable it would not throw an error
+
+Eventual consistency:-
+    - consistency :-
+     - consistency in data
+        - data in multiple tables should be consistent.
+        - Defined by the user.
+        - Referential integrity (foreign keys)
+        - Atomicity
+        - isolation
+     - consistency in reads
+        - update X to database , you better get X on Read.
+        - master node gets updated and eventually updates the worker nodes.
+        - eg :- likes in instagram need not be consistent
+
+
+
+
+
+
+

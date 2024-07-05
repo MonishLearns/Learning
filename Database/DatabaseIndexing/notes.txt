@@ -1,0 +1,82 @@
+INSERT 1 million rows
+    query:- insert into temp(t) select random()*100 from generate_series(0,1000000);
+    The above query will insert 1 million rows.
+
+Index:-
+    -Index is a Data structure that you build and assign on top of the existing table so it can analyse the table and find a shortcut to find something faster.
+    eg:- like dictionary
+    -searching effectively.
+    -Every primary key has a index by default.
+    -`explain analyze ${query}` to measure the performance of the query
+    -if index is not given , then we might need to search every pages one by one and that is a very bad idea.
+    -"LIKE" is the worst you can do without index, because it has to just not go through each page but also has ro compare the regex.
+    -if the query is heavy, database will spin up workers to parellely scan the pages.
+    - `create index index name on employees(name)`.
+    - creating a index will take time because it has to build the B+ tree on all the data.
+    - primary key will be storing in the index
+    - having like along with index also sadly doesn't improve the performance of the query, because you still have to scan every page.
+
+SEQ TABLE SCAN vs INDEX SCAN vs BITMAP INDEX SCAN
+    - seq table scan - full table scan
+    - database is smart enough to understand what scan to do.
+    - if database think it has less rows, it gonna do index scan, if not it will full scan to avoid planning cost.
+    - Bit map scan is like when you apply select query on some indexed column, it is gonna set the bit of the pages to 1 and only fetch pages that has bit set to 1.(this is good).
+
+    Database is smart enough to do all the below:-
+    - if fetching data is very less on indexed column, index map scan.
+    - if fetching data is more on indexed column, sequential scan.
+    - if data is medium, bit map scan.
+
+Key vs Non key column Database indexes:-
+    - if the index is too large and can't fit in the memory it is gonna store it in disk and disk read is again costly.
+    
+index scan vs index only scan :-
+    - if you don't specify the index for a column, the database always does seq scan
+    - index scan is used like finding the page number and fetch the whole row.
+    - index only scan is like finding the index 
+    for example :-
+    select name from grades where id = 7;
+    since index is applied on id, and we are searching on name , it will index scan as it has to go to database to fetch name
+
+    select id from grades where id = 7;
+    since index is applied on id and we also only want to fetch the id, database will only do index only scan and will never go back to database.
+
+    if you have  a usecase where you will fetch one column lot of times,
+    create index like below:-
+    create index id_idx on grades(id) include (name)
+
+    now if you do 
+    select name from grades where id = 7;
+    The database will only do index only scan.
+
+combining databases indexes for better indexes:-
+    - if you have index and trying to fetch some other unindexed column and you have some good amount of rows, database will do  Bitmap heap scan
+    - if you are giving some limit along with the query, it will only do index scan because of the overhead of building bitmap.
+    - if you give a query with "and" and both the search columns are indexed, database will spin up threads and do parellel bitmap index scan
+    - instead of creating two separate indexes , we can create a composite index which will speed up things.
+    - if you have a composite index on (a,b), search for something in b , it will not use index but for a it will.
+    - composite index is only very useful when you are searching on one or more columns very frequently.
+
+How database optimizers do which index to use :-
+    - database optimizers keep track of the statistics of the database and this actually help in deciding which scan to use for which query.
+    - you can also force database optimizers to always use some indexes
+
+creating indexes cuncurrently:-
+    - when we are creating index and parellely you are trying to write something, the write will be blocked.
+    - to avoid that we can create index like below 
+        - create index concurrently g on grades(g);
+        - this will not block the writes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

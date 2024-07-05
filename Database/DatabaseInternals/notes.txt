@@ -1,0 +1,68 @@
+How tables and indexes stored on the disk :-
+    - The storage model only understand bits and bytes.
+    - Row are actually "fixed size pages" that are stored on disk.
+    - A page can have a multiple rows.
+    - Depending on the storage model, the rows are stored and read in logical pages.
+    - The database doesn't read a single row. it reads a page or more in a single IO and we get a lot of rows in that IO
+    - Each page has a size (eg. 8KB in postgres, 16KB in MYSql)
+
+    - IO
+        - IO operation is a read request to the disk
+        - we try to minimize this as much as possible
+        - An IO can fetch 1 page or more depending on the disk partitions and other factors.
+        - An IO can't read a single row, its a page with many rows in them, you get them for free.
+        - you want to minimize the number of IO as they are expensive
+        - some IOs in OS goes to the operating system cache and not disk(mainly postgres)
+
+    - Heap
+        - The Heap is a data structure where the table is stored with all its pages one after another.
+        - This is where the actual data is stored including everything
+        - Traversing a heap is expensive as we need to read so many data to find what we want
+        - That is why we need "indexes" that help tell us exactly which part of the heap we need to read. what pages of the heap we need to pull
+    
+    -Index
+     - Index is another data structure separate from heap that has "pointers" to the heap
+     - it has part of the data and used to quickly search for something
+     - you can index on one column or more
+     - once you find the value of the index, you go to the heap to fetch more information where everything is there
+     - index tells you exactly which page to fetch in the heap instead of taking a hit to scan every page in the heap.
+     - The index is also stored as pages and cost IO to pull the entries of the index
+     - the smaller the index, the more it can fit in memory the faster the search
+     - popular data structure for index is b tress
+
+
+Row vs Column oriented Database:-
+    Row-oriented Database:-
+        - Tables are stored as rows in disk
+        - A single block io read to the table fetches multiple rows with all their columns
+        - More IO are required to find a particular row in a table scan but once you find the row you get all the columns for that row
+
+
+    Column-oriented Database:-
+        - Table are stored as columns first in disk
+        - A single block io read to the table fetches multiple columns with all matching rows.
+        - Less IOs are required to get more values of a given column. But working with multiple columns require more IO'same
+        - OLAP
+    
+    Pros and cons:-
+        - Row based
+            - optimal for reads/writes
+            - OLTP(online transaction process)
+            - compression isn't efficient
+            - Aggregation isn't efficient
+            - efficient queries with multiple column
+
+        -column based
+            - writes are slower
+            - OLAP (online Analytical process)
+            - compress greatly
+            - Amazing for Aggregation
+            - efficient queries
+            - inefficient queries w/ multi columns
+
+Summary
+Data in databases end in pages, whether this is index, sequence, or a table rows. 
+This makes it easier for the database to work with pages regardless what is in the page itself. 
+The page it self has a header and data and is stored on disk in as part of a file.
+Each database has a different implementation of how the page looks like and how it is physically stored on disk but at the end, the concept is the same.
+
